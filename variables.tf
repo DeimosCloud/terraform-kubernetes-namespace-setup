@@ -56,5 +56,5 @@ variable "pull_secret" {
 
 variable "pull_secret_registry" {
   default     = null
-  description = "Registry server URL to be used"
+  description = "Registry server URL"
 }
