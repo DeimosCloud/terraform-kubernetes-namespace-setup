@@ -49,9 +49,14 @@ variable "pull_secret_name" {
   description = "The name of the pull secret"
 }
 
-variable "pull_secret" {
+variable "pull_secret_username" {
   default     = null
-  description = "The base64 encoded credentials to be used as pull secret creds"
+  description = "The username for the pull secret e.g _json_key for GCP SA"
+}
+
+variable "pull_secret_password" {
+  default     = null
+  description = "The base64 encoded password to be used as pull secret creds"
 }
 
 variable "pull_secret_registry" {

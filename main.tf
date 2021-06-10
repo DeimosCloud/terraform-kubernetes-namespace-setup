@@ -1,8 +1,8 @@
 locals {
-  depends_on = var.create_namespace != true ? [] : [kubernetes_namespace.apps]
+  depends_on = var.create_namespace != true ? [] : [kubernetes_namespace.ns]
 }
 
-resource "kubernetes_namespace" "apps" {
+resource "kubernetes_namespace" "ns" {
   count = var.create_namespace == true ? 1 : 0
   metadata {
     labels      = merge(var.labels, var.namespace_labels)
@@ -38,7 +38,7 @@ resource "kubernetes_secret" "pull_secret" {
 {
   "auths": {
     "${var.pull_secret_registry}": {
-      "auth": "${base64encode("_json_key:${var.pull_secret}")}"
+      "auth": "${base64encode("${var.pull_secret_username}:${var.pull_secret_password}")}"
     }
   }
 }

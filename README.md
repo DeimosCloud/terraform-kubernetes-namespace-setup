@@ -78,9 +78,10 @@ Full contributing guidelines are covered [here](CONTRIBUTING.md).
 | namespace | the name of the namespace to be created | `any` | n/a | yes |
 | namespace\_annotations | Annotations to be applied to the created namespace | `map` | `{}` | no |
 | namespace\_labels | Labels to be applied to the created namespace | `map` | `{}` | no |
-| pull\_secret | The base64 encoded credentials to be used as pull secret creds | `any` | `null` | no |
 | pull\_secret\_name | The name of the pull secret | `any` | `null` | no |
+| pull\_secret\_password | The base64 encoded password to be used as pull secret creds | `any` | `null` | no |
 | pull\_secret\_registry | Registry server URL | `any` | `null` | no |
+| pull\_secret\_username | The username for the pull secret e.g \_json\_key for GCP SA | `any` | `null` | no |
 | secret\_data | data to be populated into config secret created in namespace | `map` | `{}` | no |
 | secret\_generate\_name | Prefix, used by the server, to generate a unique name.This value will also be combined with a unique suffix. If provided, it'll override the name argument | `any` | `null` | no |
 | secret\_name | The name of the secret to create and store variables as | `string` | `"config"` | no |
