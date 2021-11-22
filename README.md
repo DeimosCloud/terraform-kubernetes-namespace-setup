@@ -88,7 +88,7 @@ Full contributing guidelines are covered [here](CONTRIBUTING.md).
 | secret\_type | The type of the secret to create. (default Opaque) | `string` | `"Opaque"` | no |
 | configmap\_data | data to be populated into configmap created in namespace | `map` | `{}` | no |
 | configmap\_generate\_name | Prefix, used by the server, to generate a unique name.This value will also be combined with a unique suffix. If provided, it'll override the name argument | `any` | `null` | no |
-| configmap\_name | The name of the configmap to create and store variables as | `string` | `"config"` | no |
+| configmap\_name | The name of the configmap to create and store variables as | `string` | `"configmap"` | no |
 ## Outputs
 
 No output.
