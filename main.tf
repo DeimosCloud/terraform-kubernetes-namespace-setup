@@ -11,6 +11,18 @@ resource "kubernetes_namespace" "ns" {
   }
 }
 
+resource "kubernetes_config_map" "configmap" {
+    metadata {
+    name          = var.configmap_name
+    namespace     = var.namespace
+    labels        = var.labels
+    generate_name = var.configmap_generate_name
+  }
+
+  data = var.configmap_data
+  depends_on = [local.depends_on]
+}
+
 resource "kubernetes_secret" "configs" {
   metadata {
     name          = var.secret_generate_name == null ? var.secret_name : null

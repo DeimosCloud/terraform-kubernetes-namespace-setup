@@ -20,11 +20,14 @@ module "apps_namespace_setup" {
   secret_data = {
     "postgres-user"     = local.db_user_name
     "postgres-password" = module.postgres.generated_user_password
+    "dns_solver.json"   = module.dns_solver_sa.key
+  }
+
+  configmap_data = {
     "postgres-host"     = module.postgres.private_ip_address
     "postgres-database" = local.db_name
     "ratings-database"  = local.ratings_db_name
     "redis-host"        = module.redis.host
-    "dns_solver.json"   = module.dns_solver_sa.key
   }
 
   pull_secret_name     = "${var.project_name}-pull-secret"
@@ -86,7 +89,9 @@ Full contributing guidelines are covered [here](CONTRIBUTING.md).
 | secret\_generate\_name | Prefix, used by the server, to generate a unique name.This value will also be combined with a unique suffix. If provided, it'll override the name argument | `any` | `null` | no |
 | secret\_name | The name of the secret to create and store variables as | `string` | `"config"` | no |
 | secret\_type | The type of the secret to create. (default Opaque) | `string` | `"Opaque"` | no |
-
+| configmap\_data | data to be populated into configmap created in namespace | `map` | `{}` | no |
+| configmap\_generate\_name | Prefix, used by the server, to generate a unique name. This value will also be combined with a unique suffix. If provided, it'll override the name argument | `any` | `null` | no |
+| configmap\_name | The name of the configmap to create and store variables as | `string` | `"configmap"` | no |
 ## Outputs
 
 No output.
