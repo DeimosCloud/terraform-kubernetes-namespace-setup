@@ -20,11 +20,14 @@ module "apps_namespace_setup" {
   secret_data = {
     "postgres-user"     = local.db_user_name
     "postgres-password" = module.postgres.generated_user_password
+    "dns_solver.json"   = module.dns_solver_sa.key
+  }
+
+  configmap_data = {
     "postgres-host"     = module.postgres.private_ip_address
     "postgres-database" = local.db_name
     "ratings-database"  = local.ratings_db_name
     "redis-host"        = module.redis.host
-    "dns_solver.json"   = module.dns_solver_sa.key
   }
 
   pull_secret_name     = "${var.project_name}-pull-secret"
