@@ -77,5 +77,5 @@ variable "configmap_generate_name" {
 
 variable "configmap_data" {
   default     = {}
-  description = "data to be populated into configmap created in namespace"
+  description = "data to be populated into configmap created in the namespace"
 }

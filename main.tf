@@ -60,4 +60,3 @@ DOCKER
   type       = "kubernetes.io/dockerconfigjson"
   depends_on = [local.depends_on]
 }
-
