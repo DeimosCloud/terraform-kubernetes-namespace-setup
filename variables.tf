@@ -63,3 +63,19 @@ variable "pull_secret_registry" {
   default     = null
   description = "Registry server URL"
 }
+
+
+variable "configmap_name" {
+  default     = "configmap"
+  description = "The name of the configmap to create and store variables as"
+}
+
+variable "configmap_generate_name" {
+  default     = null
+  description = "Prefix, used by the server, to generate a unique name.This value will also be combined with a unique suffix. If provided, it'll override the name argument "
+}
+
+variable "configmap_data" {
+  default     = {}
+  description = "data to be populated into configmap created in namespace"
+}
